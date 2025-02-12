@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 text-center">
         <Image
           src="/placeholder.svg?height=150&width=150"
-          //alt="Your Name"
+          alt=""
           width={150}
           height={150}
           className="rounded-full mx-auto mb-6"
