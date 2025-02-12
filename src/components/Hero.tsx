@@ -13,9 +13,7 @@ export default function Hero() {
         />
         <h1 className="text-4xl font-bold mb-2">Your Name</h1>
         <p className="text-xl mb-8">Web Developer & Designer</p>
-        <a href="#contact" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-          Get in Touch
-        </a>
+
       </div>
     </section>
   )

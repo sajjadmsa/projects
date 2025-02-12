@@ -1,9 +1,40 @@
+"use client"
+
+import { useState } from "react"
+import { useFormStatus } from "react-dom"
+import { sendEmail } from "@/app/actions"
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <button
+      type="submit"
+      className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      disabled={pending}
+    >
+      {pending ? "Sending..." : "Send Message"}
+    </button>
+  )
+}
+
 export default function Contact() {
+  const [message, setMessage] = useState("")
+
+  async function handleSubmit(formData: FormData) {
+    const result = await sendEmail(formData)
+    if (result.success) {
+      setMessage("Thank you for your message. We'll get back to you soon!")
+    } else {
+      setMessage("There was an error sending your message. Please try again.")
+    }
+  }
+
   return (
     <section id="contact" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-        <form className="max-w-md mx-auto">
+        <form action={handleSubmit} className="max-w-md mx-auto">
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
               Name
@@ -40,10 +71,9 @@ export default function Contact() {
               required
             ></textarea>
           </div>
-          <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Send Message
-          </button>
+          <SubmitButton />
         </form>
+        {message && <p className="mt-4 text-center text-green-600">{message}</p>}
       </div>
     </section>
   )
