@@ -3,21 +3,24 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "Project 1",
-    description: "A brief description of Project 1",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "E-commerce Platform",
+    description: "A full-stack e-commerce platform built with React, Node.js, Express, and MongoDB. Features include product listings, shopping cart functionality, and user authentication.",
+    techStack: "React, Node.js, Express, MongoDB",
+    image: "/e-commerce-placeholder.svg", // Replace with an actual image or placeholder
   },
   {
     id: 2,
-    title: "Project 2",
-    description: "A brief description of Project 2",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Task Management Application",
+    description: "A task management app that helps users organize and track their tasks. Built with React, Node.js, Express, and PostgreSQL, focusing on CRUD operations and task prioritization.",
+    techStack: "React, Node.js, Express, PostgreSQL",
+    image: "/task-management-placeholder.svg", // Replace with an actual image or placeholder
   },
   {
     id: 3,
-    title: "Project 3",
-    description: "A brief description of Project 3",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Blog Platform",
+    description: "A blog platform where users can create, edit, and delete blog posts. Developed using React for the frontend, .NET Core for the backend, and SQL Server for data storage.",
+    techStack: "React, .NET Core, SQL Server",
+    image: "/blog-platform-placeholder.svg", // Replace with an actual image or placeholder
   },
 ]
 
@@ -38,7 +41,9 @@ export default function Projects() {
               />
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                <p className="text-gray-700">{project.description}</p>
+                <p className="text-gray-700 mb-4">{project.description}</p>
+                <p className="font-semibold text-gray-800">Tech Stack:</p>
+                <p className="text-gray-600">{project.techStack}</p>
               </div>
             </div>
           ))}
@@ -47,4 +52,4 @@ export default function Projects() {
     </section>
   )
 }
-
+  
